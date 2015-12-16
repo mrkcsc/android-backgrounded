@@ -20,3 +20,5 @@ android {
 dependencies {
 
 }
+
+apply from: '../build.release-aar.gradle'
