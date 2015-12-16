@@ -19,6 +19,8 @@ android {
 
 dependencies {
 
+    //noinspection GradleDynamicVersion
+    compile 'io.reactivex:rxjava:1.+'
 }
 
 apply from: '../build.release-aar.gradle'
