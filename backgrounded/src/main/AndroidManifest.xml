@@ -1,7 +1,5 @@
-<manifest package="com.miguelgaeta.backgrounded"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest package="com.miguelgaeta.backgrounded">
 
-    <application android:allowBackup="true"
-                 android:supportsRtl="true" />
+    <application/>
 
 </manifest>
