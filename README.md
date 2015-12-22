@@ -1,4 +1,4 @@
-### android-backgrounded
+### Android Backgrounded
 
 A simple utility class that allows you to track when your Android application has entered/exited the foreground.
 
