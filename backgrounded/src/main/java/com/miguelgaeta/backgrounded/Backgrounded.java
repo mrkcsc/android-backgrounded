@@ -65,6 +65,11 @@ public class Backgrounded {
 
         private Subscription subscription;
 
+        public Lifecycle() {
+
+            checkBackgrounded(Constants.DELAY_SHORT);
+        }
+
         @Override
         public void onActivityResumed(Activity activity) {
 
@@ -78,7 +83,12 @@ public class Backgrounded {
         @Override
         public void onActivityPaused(Activity activity) {
 
-            subscription = Observable.timer(Constants.DELAY, TimeUnit.MILLISECONDS).subscribe(new Action1<Long>() {
+            checkBackgrounded(Constants.DELAY);
+        }
+
+        private void checkBackgrounded(final int delay) {
+
+            subscription = Observable.timer(delay, TimeUnit.MILLISECONDS).subscribe(new Action1<Long>() {
 
                 @Override
                 public void call(Long aLong) {
@@ -99,6 +109,7 @@ public class Backgrounded {
         private static class Constants {
 
             private static final int DELAY = 2000;
+            private static final int DELAY_SHORT = 500;
 
             private static final String TAG = "Backgrounded";
         }
