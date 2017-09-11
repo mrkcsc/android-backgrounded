@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 26
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 26
     }
 
     buildTypes {
@@ -20,7 +20,7 @@ android {
 dependencies {
 
     //noinspection GradleDynamicVersion
-    compile 'io.reactivex:rxjava:1.+'
+    provided 'io.reactivex:rxjava:1.+'
 }
 
 apply from: '../build.release-aar.gradle'

@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 26
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         applicationId "com.miguelgaeta.android_backgrounded"
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
     }
@@ -21,7 +21,11 @@ android {
 
 dependencies {
 
-    compile 'com.android.support:appcompat-v7:23.1.1'
+    //noinspection GradleDynamicVersion
+    compile 'com.android.support:appcompat-v7:26+'
+
+    //noinspection GradleDynamicVersion
+    compile 'io.reactivex:rxjava:1.+'
 
     compile project(':backgrounded')
 }
