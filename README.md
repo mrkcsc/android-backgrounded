@@ -8,7 +8,7 @@ A simple utility class that allows you to track when your Android application ha
 
 ```groovy
 
-compile 'com.miguelgaeta.android-backgrounded:backgrounded:1.0.2'
+compile 'com.miguelgaeta.android-backgrounded:backgrounded:1.0.3'
 
 ```
 
