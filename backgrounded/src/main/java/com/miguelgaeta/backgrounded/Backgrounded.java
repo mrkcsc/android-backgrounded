@@ -12,14 +12,13 @@ import rx.Subscription;
 import rx.functions.Action1;
 import rx.subjects.BehaviorSubject;
 import rx.subjects.SerializedSubject;
+import rx.subjects.Subject;
 
 /**
  * Created by Miguel Gaeta on 12/15/15.
  */
 @SuppressWarnings("DefaultFileTemplate")
 public class Backgrounded {
-
-    private static final SerializedSubject<Boolean, Boolean> emitter = new SerializedSubject<>(BehaviorSubject.<Boolean>create());
 
     private static Lifecycle lifecycle;
 
@@ -44,14 +43,14 @@ public class Backgrounded {
 
         checkInitialized();
 
-        return emitter.distinctUntilChanged();
+        return lifecycle.emitter.distinctUntilChanged();
     }
 
     public static boolean isBackgrounded() {
 
         checkInitialized();
 
-        return emitter.toBlocking().mostRecent(true).iterator().next();
+        return lifecycle.emitter.toBlocking().mostRecent(true).iterator().next();
     }
 
     private static void checkInitialized() {
@@ -69,6 +68,7 @@ public class Backgrounded {
 
         private static final String TAG = "Backgrounded";
 
+        private final Subject<Boolean, Boolean> emitter = new SerializedSubject<>(BehaviorSubject.<Boolean>create());
         private Subscription subscription;
 
         Lifecycle() {
