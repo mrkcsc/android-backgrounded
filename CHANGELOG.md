@@ -1,3 +1,7 @@
+## 1.0.5 - 2017-09-11
+
+- Convert to Kotlin library.
+
 ## 1.0.4 - 2017-09-11
 
 - Minor tweaks.
