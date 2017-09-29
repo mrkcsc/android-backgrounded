@@ -15,9 +15,9 @@ import rx.subjects.SerializedSubject;
 import rx.subjects.Subject;
 
 /**
- * Created by Miguel Gaeta on 12/15/15.
+ * Utility class that uses {@link Application.ActivityLifecycleCallbacks} to heuristically
+ * track whether or not the current application is in the foreground or background.
  */
-@SuppressWarnings("DefaultFileTemplate")
 public class Backgrounded {
 
     private static Lifecycle lifecycle;
