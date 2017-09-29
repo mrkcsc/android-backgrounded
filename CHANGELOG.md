@@ -1,3 +1,7 @@
+## 1.0.4 - 2017-09-11
+
+- Minor tweaks.
+
 ## 1.0.3 - 2017-09-11
 
 - Update build tools SDK target and provided dependency.
