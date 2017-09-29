@@ -1,12 +1,13 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '25.0.0'
+    compileSdkVersion rootProject.ext.target_sdk_version
+    buildToolsVersion rootProject.ext.build_tools_version
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 26
+        minSdkVersion rootProject.ext.min_sdk_version
+        targetSdkVersion rootProject.ext.target_sdk_version
     }
 
     buildTypes {
@@ -21,6 +22,9 @@ dependencies {
 
     //noinspection GradleDynamicVersion
     provided 'io.reactivex:rxjava:1.+'
+
+    //noinspection GradleDynamicVersion
+    provided "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.+"
 }
 
 apply from: '../build.release-aar.gradle'

@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '25.0.0'
+    compileSdkVersion rootProject.ext.target_sdk_version
+    buildToolsVersion rootProject.ext.build_tools_version
 
     defaultConfig {
         applicationId "com.miguelgaeta.android_backgrounded"
-        minSdkVersion 14
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+
+        minSdkVersion rootProject.ext.min_sdk_version
+        targetSdkVersion rootProject.ext.target_sdk_version
     }
     buildTypes {
         release {
@@ -22,10 +22,13 @@ android {
 dependencies {
 
     //noinspection GradleDynamicVersion
-    compile 'com.android.support:appcompat-v7:26+'
+    compile "com.android.support:appcompat-v7:$target_sdk_version+"
 
     //noinspection GradleDynamicVersion
     compile 'io.reactivex:rxjava:1.+'
+
+    //noinspection GradleDynamicVersion
+    compile 'org.jetbrains.kotlin:kotlin-stdlib-jre7:1.+'
 
     compile project(':backgrounded')
 }
