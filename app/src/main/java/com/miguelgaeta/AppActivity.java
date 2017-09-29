@@ -23,5 +23,7 @@ public class AppActivity extends AppCompatActivity {
                 Log.e("Test", "Backgrounded status: " + backgrounded);
             }
         });
+
+        Log.e("Test", "Currently backgrounded: " + Backgrounded.isBackgrounded());
     }
 }

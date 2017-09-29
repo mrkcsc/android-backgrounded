@@ -2,6 +2,7 @@ package com.miguelgaeta.backgrounded;
 
 import android.app.Activity;
 import android.app.Application;
+import android.os.Bundle;
 import android.util.Log;
 
 import java.util.concurrent.TimeUnit;
@@ -61,13 +62,28 @@ public class Backgrounded {
         }
     }
 
-    private static class Lifecycle extends BackgroundedActivityLifecycleCallbacks {
+    private static class Lifecycle implements Application.ActivityLifecycleCallbacks {
+
+        private static final int DELAY = 2000;
+        private static final int DELAY_SHORT = 500;
+
+        private static final String TAG = "Backgrounded";
 
         private Subscription subscription;
 
-        public Lifecycle() {
+        Lifecycle() {
 
-            checkBackgrounded(Constants.DELAY_SHORT);
+            checkBackgrounded(DELAY_SHORT);
+        }
+
+        @Override
+        public void onActivityCreated(Activity activity, Bundle bundle) {
+
+        }
+
+        @Override
+        public void onActivityStarted(Activity activity) {
+
         }
 
         @Override
@@ -83,7 +99,22 @@ public class Backgrounded {
         @Override
         public void onActivityPaused(Activity activity) {
 
-            checkBackgrounded(Constants.DELAY);
+            checkBackgrounded(DELAY);
+        }
+
+        @Override
+        public void onActivityStopped(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+
+        }
+
+        @Override
+        public void onActivityDestroyed(Activity activity) {
+
         }
 
         private void checkBackgrounded(final int delay) {
@@ -101,17 +132,9 @@ public class Backgrounded {
                 @Override
                 public void call(Throwable throwable) {
 
-                    Log.e(Constants.TAG, "Subscription error in backgrounded delay.");
+                    Log.e(TAG, "Subscription error in backgrounded delay.");
                 }
             });
-        }
-
-        private static class Constants {
-
-            private static final int DELAY = 2000;
-            private static final int DELAY_SHORT = 500;
-
-            private static final String TAG = "Backgrounded";
         }
     }
 }
